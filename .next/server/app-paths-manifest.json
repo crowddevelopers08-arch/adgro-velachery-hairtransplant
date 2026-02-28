@@ -1,0 +1,5 @@
+{
+  "/api/contact-form/route": "app/api/contact-form/route.js",
+  "/page": "app/page.js",
+  "/admin-dashboard/page": "app/admin-dashboard/page.js"
+}
