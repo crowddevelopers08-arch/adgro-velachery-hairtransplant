@@ -150,7 +150,7 @@ export function Thankheader() {
                 className={`transition-all duration-300 ${
                   scrolled ? 'h-10' : 'h-12'
                 }`}
-                src="logo2.png" 
+                src="https://ik.imagekit.io/ixjqghl7f/public/logo2.png" 
                 alt="Company Logo" 
               />
             </div>

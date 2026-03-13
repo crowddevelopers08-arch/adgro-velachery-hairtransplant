@@ -22,7 +22,7 @@ const HairTransplant = () => {
           {/* Single Image Container */}
           <div className="w-full h-full min-h-[300px] sm:min-h-[350px] lg:min-h-[400px] xl:min-h-[450px] relative overflow-hidden rounded-lg lg:rounded-[1rem]">
             <Image 
-              src="/does-stress.jpg" // Replace with your image path
+              src="https://ik.imagekit.io/ixjqghl7f/public/does-stress.jpg" // Replace with your image path
               alt="Hair transplant before and after results"
               fill
               className="object-cover"

@@ -1,4 +1,4 @@
-// File: D:\Grow medico LP\addgrow-velachery-lp\app\layout.tsx
+// File: D:\CrowMedi\adgro-hair-tp-velachry\addgrow-velachery-lp\app\layout.tsx
 import * as entry from '../../../app/layout.js'
 import type { ResolvingMetadata, ResolvingViewport } from 'next/dist/lib/metadata/types/metadata-interface.js'
 

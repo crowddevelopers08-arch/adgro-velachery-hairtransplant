@@ -77,7 +77,7 @@ const HairTransplantSection = () => {
           {/* Single Image Container */}
           <div className="w-full h-full relative overflow-hidden rounded-xl lg:rounded-[1rem]">
             <Image 
-              src="/prb1.jpg" // Replace with your image path
+              src="https://ik.imagekit.io/ixjqghl7f/public/prb1.jpg" // Replace with your image path
               alt="Hair transplant before and after results"
               fill
               className="object-cover"

@@ -6,7 +6,7 @@ import { motion } from "framer-motion";
 interface GalleryImage {
   id: number;
   beforeImage: string;
-  afterImage: string;
+  afterImage?: string;
   alt: string;
 }
 
@@ -18,26 +18,11 @@ const BeforeAfterGallery: React.FC = () => {
 
   // Sample data - replace with your actual images
   const galleryImages: GalleryImage[] = [
-    {
-      id: 1,
-      beforeImage: "beffone.jpeg",
-    },
-    {
-      id: 2,
-      beforeImage: "befftwo.jpeg",
-    },
-    {
-      id: 3,
-      beforeImage: "beffthree.jpeg",
-    },
-    {
-      id: 4,
-      beforeImage: "befffour.jpeg",
-    },
-        {
-      id: 5,
-      beforeImage: "bef4.jpeg",
-    },
+    { id: 1, beforeImage: "https://ik.imagekit.io/ixjqghl7f/public/beffone.jpeg", alt: "Result 1" },
+    { id: 2, beforeImage: "https://ik.imagekit.io/ixjqghl7f/public/befftwo.jpeg", alt: "Result 2" },
+    { id: 3, beforeImage: "https://ik.imagekit.io/ixjqghl7f/public/beffthree.jpeg", alt: "Result 3" },
+    { id: 4, beforeImage: "https://ik.imagekit.io/ixjqghl7f/public/befffour.jpeg", alt: "Result 4" },
+    { id: 5, beforeImage: "https://ik.imagekit.io/ixjqghl7f/public/bef4.jpeg", alt: "Result 5" },
   ];
 
   useEffect(() => {

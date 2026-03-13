@@ -157,7 +157,7 @@ const KneePainTreatment: React.FC = () => {
               }}
             >
               <img 
-                src="cnnn.jpg" 
+                src="https://ik.imagekit.io/ixjqghl7f/public/cnnn.jpg" 
                 alt="Hair Restoration Excellence" 
                 className="w-full h-full object-cover"
               />

@@ -15,7 +15,7 @@ const Footer = () => {
               {/* <div className="w-12 h-12 rounded-full bg-[#ea2629] flex items-center justify-center text-white font-bold text-xl mr-3">
                 A
               </div> */}
-               <img  className="w-[200px] h-[60px] max-[768px]:w-[150px] max-[768px]:h-[50px] max-[480px]:w-[120px] max-[480px]:h-[40px]" src="logo2.png" alt="logo" />
+               <img  className="w-[200px] h-[60px] max-[768px]:w-[150px] max-[768px]:h-[50px] max-[480px]:w-[120px] max-[480px]:h-[40px]" src="https://ik.imagekit.io/ixjqghl7f/public/logo2.png" alt="logo" />
               
               <h2 className="text-2xl max-[425px]:text-[18px] font-bold text-white">Adgro - Hair Transplant, velachery</h2>
             </div>

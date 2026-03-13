@@ -1,5 +1,10 @@
 {
+  "/_not-found/page": "app/_not-found/page.js",
   "/api/contact-form/route": "app/api/contact-form/route.js",
-  "/page": "app/page.js",
-  "/admin-dashboard/page": "app/admin-dashboard/page.js"
+  "/consultations/route": "app/consultations/route.js",
+  "/admin-dashboard/page": "app/admin-dashboard/page.js",
+  "/thank-you/page": "app/thank-you/page.js",
+  "/client-review/page": "app/client-review/page.js",
+  "/privacy-policy/page": "app/privacy-policy/page.js",
+  "/page": "app/page.js"
 }

@@ -1,0 +1,10 @@
+{
+  "/_not-found/page": "/_not-found",
+  "/api/contact-form/route": "/api/contact-form",
+  "/consultations/route": "/consultations",
+  "/admin-dashboard/page": "/admin-dashboard",
+  "/thank-you/page": "/thank-you",
+  "/client-review/page": "/client-review",
+  "/privacy-policy/page": "/privacy-policy",
+  "/page": "/"
+}

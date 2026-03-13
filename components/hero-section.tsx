@@ -120,7 +120,7 @@ const Hero = () => {
               >
                 <div className="w-full h-full relative">
                   <Image
-                    src="/ban6.jpg"
+                    src="https://ik.imagekit.io/ixjqghl7f/public/ban6.jpg"
                     alt="Hair Transplant Results"
                     fill
                     className="object-cover"
@@ -240,7 +240,7 @@ const Hero = () => {
               >
                 <div className="w-full h-full relative">
                   <Image
-                    src="/ban6.jpg"
+                    src="https://ik.imagekit.io/ixjqghl7f/public/ban6.jpg"
                     alt="Hair Transplant Results"
                     fill
                     className="object-cover"
