@@ -3,6 +3,16 @@ import { motion } from 'framer-motion';
 import { useState, useRef, useEffect } from 'react';
 import { MapPin, Navigation, Car, X } from 'lucide-react';
 import { FaWalking } from 'react-icons/fa';
+import {
+  AlertDialog,
+  AlertDialogAction,
+  AlertDialogCancel,
+  AlertDialogContent,
+  AlertDialogDescription,
+  AlertDialogFooter,
+  AlertDialogHeader,
+  AlertDialogTitle,
+} from '@/components/ui/alert-dialog';
 
 const CombinedSection = () => {
   // Form state
@@ -17,6 +27,9 @@ const CombinedSection = () => {
     type: 'success' | 'error' | null;
     message: string;
   }>({ type: null, message: '' });
+  const [showVisitConfirmation, setShowVisitConfirmation] = useState(false);
+  const formRef = useRef<HTMLFormElement>(null);
+  const confirmedSubmissionRef = useRef(false);
 
   // Map state
   const mapContainerRef = useRef<HTMLDivElement>(null);
@@ -54,6 +67,13 @@ const CombinedSection = () => {
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
+
+    if (!confirmedSubmissionRef.current) {
+      setShowVisitConfirmation(true);
+      return;
+    }
+
+    confirmedSubmissionRef.current = false;
     setIsSubmitting(true);
     setSubmitStatus({ type: null, message: '' });
     
@@ -113,6 +133,19 @@ const CombinedSection = () => {
     }
   };
 
+  const handleVisitConfirmation = (isComfortable: boolean) => {
+    setShowVisitConfirmation(false);
+
+    if (!isComfortable) {
+      confirmedSubmissionRef.current = false;
+      window.location.href = '/';
+      return;
+    }
+
+    confirmedSubmissionRef.current = true;
+    formRef.current?.requestSubmit();
+  };
+
   // Directions link
   const directionsLink = travelMode === 'driving' 
     ? 'https://www.google.com/maps/dir/?api=1&destination=Second+Floor+Block+No.20+Sankaran+Avenue+Plot+No.31+Pandian+St+Indira+Gandhi+Nagar+Velachery+Chennai+600042'
@@ -166,7 +199,7 @@ const CombinedSection = () => {
               viewport={{ once: true }}
               transition={{ duration: 0.5, delay: 0.2 }}
             >
-              <form onSubmit={handleSubmit} className="flex-1 flex flex-col">
+              <form ref={formRef} onSubmit={handleSubmit} className="flex-1 flex flex-col">
                 <div className="mb-6">
                   <label htmlFor="name" className="block text-white mb-2 font-medium">Name</label>
                   <input
@@ -285,7 +318,7 @@ const CombinedSection = () => {
                   loading="lazy"
                   referrerPolicy="no-referrer-when-downgrade"
                   className="relative z-10 min-h-[450px]"
-                  aria-label="Addgrow Hair Clinic Location"
+                  aria-label="Adgro Hair Clinic Location"
                 ></iframe>
                 
                 {/* Animated location pin */}
@@ -451,6 +484,33 @@ const CombinedSection = () => {
           `}</style>
         </div>
       </section>
+
+      <AlertDialog open={showVisitConfirmation} onOpenChange={setShowVisitConfirmation}>
+        <AlertDialogContent className="border-[#de2225]/20">
+          <AlertDialogHeader>
+            <AlertDialogTitle className="text-xl text-[#1d2837]">
+              Before we submit your consultation request
+            </AlertDialogTitle>
+            <AlertDialogDescription className="text-base text-gray-600">
+              Are you comfortable visiting Adgro &amp; Glo Skiin, Velachery, Chennai?
+            </AlertDialogDescription>
+          </AlertDialogHeader>
+          <AlertDialogFooter>
+            <AlertDialogCancel
+              className="border-gray-300 text-gray-700 hover:bg-gray-100"
+              onClick={() => handleVisitConfirmation(false)}
+            >
+              No
+            </AlertDialogCancel>
+            <AlertDialogAction
+              className="bg-[#e52427] text-white hover:bg-red-700"
+              onClick={() => handleVisitConfirmation(true)}
+            >
+              Yes
+            </AlertDialogAction>
+          </AlertDialogFooter>
+        </AlertDialogContent>
+      </AlertDialog>
     </>
   );
 };

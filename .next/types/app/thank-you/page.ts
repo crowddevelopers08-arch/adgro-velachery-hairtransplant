@@ -1,4 +1,4 @@
-// File: D:\CrowMedi\adgro-hair-tp-velachry\addgrow-velachery-lp\app\thank-you\page.tsx
+// File: D:\Grow medico LP\velachery-hairtransplant\adgro-velachery-hairtransplant\app\thank-you\page.tsx
 import * as entry from '../../../../app/thank-you/page.js'
 import type { ResolvingMetadata, ResolvingViewport } from 'next/dist/lib/metadata/types/metadata-interface.js'
 
