@@ -27,8 +27,8 @@ const CombinedSection = () => {
     type: 'success' | 'error' | null;
     message: string;
   }>({ type: null, message: '' });
-  const [visitDeclinedMessage, setVisitDeclinedMessage] = useState('');
   const [showVisitConfirmation, setShowVisitConfirmation] = useState(false);
+  const [showClinicOnlyPopup, setShowClinicOnlyPopup] = useState(false);
   const formRef = useRef<HTMLFormElement>(null);
   const confirmedSubmissionRef = useRef(false);
 
@@ -75,7 +75,6 @@ const CombinedSection = () => {
     }
 
     confirmedSubmissionRef.current = false;
-    setVisitDeclinedMessage('');
     setIsSubmitting(true);
     setSubmitStatus({ type: null, message: '' });
     
@@ -140,11 +139,10 @@ const CombinedSection = () => {
 
     if (!isComfortable) {
       confirmedSubmissionRef.current = false;
-      setVisitDeclinedMessage('We provide treatment at our Velachery, Chennai clinic only.');
+      setShowClinicOnlyPopup(true);
       return;
     }
 
-    setVisitDeclinedMessage('');
     confirmedSubmissionRef.current = true;
     formRef.current?.requestSubmit();
   };
@@ -192,16 +190,6 @@ const CombinedSection = () => {
             </motion.div>
           )}
 
-          {visitDeclinedMessage && (
-            <motion.div
-              className="mb-6 rounded-lg border border-amber-200 bg-amber-50 p-4 text-amber-900"
-              initial={{ opacity: 0, y: -20 }}
-              animate={{ opacity: 1, y: 0 }}
-            >
-              <p className="text-center font-medium">{visitDeclinedMessage}</p>
-            </motion.div>
-          )}
-          
           {/* Updated container with equal height columns */}
           <div className="grid grid-cols-1 lg:grid-cols-2 max-[420px]:gap-5 gap-10 items-stretch min-h-[500px]">
             {/* Form Column - Updated to full height */}
@@ -347,7 +335,7 @@ const CombinedSection = () => {
                 <div className="absolute bottom-4 left-4 z-20 bg-white/90 px-3 py-1.5 rounded-full shadow-md max-w-[90%]">
                   <div className="flex items-center space-x-2 truncate">
                     <div className="w-2.5 h-2.5 bg-green-500 rounded-full flex-shrink-0"></div>
-                    <span className="text-blue-500 font-medium text-sm truncate">Addgrow Hair Clinic</span>
+                    <span className="text-blue-500 font-medium text-sm truncate">Adgro Hair Clinic</span>
                   </div>
                 </div>
                 
@@ -521,6 +509,27 @@ const CombinedSection = () => {
               onClick={() => handleVisitConfirmation(true)}
             >
               Yes
+            </AlertDialogAction>
+          </AlertDialogFooter>
+        </AlertDialogContent>
+      </AlertDialog>
+
+      <AlertDialog open={showClinicOnlyPopup} onOpenChange={setShowClinicOnlyPopup}>
+        <AlertDialogContent className="border-amber-200">
+          <AlertDialogHeader>
+            <AlertDialogTitle className="text-xl text-[#1d2837]">
+              Clinic Availability
+            </AlertDialogTitle>
+            <AlertDialogDescription className="text-base text-gray-600">
+              We provide treatment at our <span className="font-semibold text-[#e52427]">Velachery, Chennai</span> clinic only.
+            </AlertDialogDescription>
+          </AlertDialogHeader>
+          <AlertDialogFooter>
+            <AlertDialogAction
+              className="bg-[#e52427] text-white hover:bg-red-700"
+              onClick={() => setShowClinicOnlyPopup(false)}
+            >
+              OK
             </AlertDialogAction>
           </AlertDialogFooter>
         </AlertDialogContent>
