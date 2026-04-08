@@ -27,6 +27,7 @@ const CombinedSection = () => {
     type: 'success' | 'error' | null;
     message: string;
   }>({ type: null, message: '' });
+  const [visitDeclinedMessage, setVisitDeclinedMessage] = useState('');
   const [showVisitConfirmation, setShowVisitConfirmation] = useState(false);
   const formRef = useRef<HTMLFormElement>(null);
   const confirmedSubmissionRef = useRef(false);
@@ -74,6 +75,7 @@ const CombinedSection = () => {
     }
 
     confirmedSubmissionRef.current = false;
+    setVisitDeclinedMessage('');
     setIsSubmitting(true);
     setSubmitStatus({ type: null, message: '' });
     
@@ -138,10 +140,11 @@ const CombinedSection = () => {
 
     if (!isComfortable) {
       confirmedSubmissionRef.current = false;
-      window.location.href = '/';
+      setVisitDeclinedMessage('We provide treatment at our Velachery, Chennai clinic only.');
       return;
     }
 
+    setVisitDeclinedMessage('');
     confirmedSubmissionRef.current = true;
     formRef.current?.requestSubmit();
   };
@@ -186,6 +189,16 @@ const CombinedSection = () => {
               exit={{ opacity: 0, y: -20 }}
             >
               <p className="text-center font-medium">{submitStatus.message}</p>
+            </motion.div>
+          )}
+
+          {visitDeclinedMessage && (
+            <motion.div
+              className="mb-6 rounded-lg border border-amber-200 bg-amber-50 p-4 text-amber-900"
+              initial={{ opacity: 0, y: -20 }}
+              animate={{ opacity: 1, y: 0 }}
+            >
+              <p className="text-center font-medium">{visitDeclinedMessage}</p>
             </motion.div>
           )}
           
@@ -492,7 +505,8 @@ const CombinedSection = () => {
               Before we submit your consultation request
             </AlertDialogTitle>
             <AlertDialogDescription className="text-base text-gray-600">
-              Are you comfortable visiting Adgro &amp; Glo Skiin, Velachery, Chennai?
+              Are you comfortable visiting Adgro &amp; Glo Skiin,{" "}
+              <span className="font-semibold text-[#e52427]">Velachery, Chennai</span>?
             </AlertDialogDescription>
           </AlertDialogHeader>
           <AlertDialogFooter>
