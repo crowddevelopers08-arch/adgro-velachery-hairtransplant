@@ -13,6 +13,7 @@ import CombinedSection from "@/components/consultation-modal";
 import Footer from "@/components/footer";
 import ShuffleHero from "@/components/hero-section";
 import HairTransplant from "@/components/commonseven";
+import InstagramReelsSection from "@/components/instagram-reels-section";
 
 export default function HomePage() {
   return (
@@ -29,6 +30,7 @@ export default function HomePage() {
         <CombinedTrustEnquiry />
         <ProcessTimeline />
         <HairTransplant />
+        <InstagramReelsSection />
      
         <FinalCTA />
         <section id="form">
